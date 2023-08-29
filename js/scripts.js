@@ -1,3 +1,20 @@
+let pokemonRepository = (function () {
+    let pokemonList = [];
+  
+    function add(pokemon) {
+      pokemonList.push(pokemon);
+    }
+  
+    function getAll() {
+      return pokemonList;
+    }
+  
+    return {
+      add: add,
+      getAll: getAll
+    };
+  })();
+
 let pokemonList =[
 {name:"Bulbasaur", types:["grass"," poison"],hieght:".7" },
 {name:"Ivysaur", types:["grass"," poison" ], hieght:"1" },
@@ -6,18 +23,22 @@ let pokemonList =[
 {name:"Charmeleon", types:"fire" , hieght:"1.1" },
 {name:"Charizard", types:["fire"," flying" ], hieght:"1.7" }]
 
-for (let i=0; i < pokemonList.length; i++){
-    if (pokemonList[i].hieght <1){
-        document.write(pokemonList[i].name," is a ", pokemonList[i].types," type", "<br>", " hieight is ", pokemonList[i].hieght, " meters. Thats small <br>",)
-    }
+let pokeinfo = ""
 
-    else if (pokemonList[i].hieght >1.5) {
-        document.write(pokemonList[i].name," is a ", pokemonList[i].types," type", "<br>", " hieight is ", pokemonList[i].hieght, " meters. Thats Big <br>")
+for (let i=0; i < pokemonList.length; i++){
+    if (pokemonList[i].hieght <1) {pokeinfo= pokemonList[i].name," is a ", pokemonList[i].types," type", "<br>", " hieight is ", pokemonList[i].hieght, " meters. Thats small <br>";}
+    
+
+    else if (pokemonList[i].hieght >1.5) {pokeinfo=pokemonList[i].name," is a ", pokemonList[i].types," type", "<br>", " hieight is ", pokemonList[i].hieght, " meters. Thats Big <br>";
     }
     
      else {
-        document.write(pokemonList[i].name," is a ", pokemonList[i].types," type", "<br>", " hieight is ", pokemonList[i].hieght, " meters. <br>")  
+        pokeinfo=pokemonList[i].name," is a ", pokemonList[i].types," type", "<br>", " hieight is ", pokemonList[i].hieght, " meters. <br>";
      }
     
+}
+pokemonList.forEach (pokedetails);
+function pokedetails(){
+    document.write(pokeinfo)
 }
 
