@@ -1,31 +1,41 @@
-document.write("hello");
 
-let pokemonRepository = pokemonList = [
-  {name:"Bulbasaur", types:["grass"," poison"],hieght:".7" },
-  {name:"Ivysaur", types:["grass"," poison" ], hieght:"1" },
-  {name:"Venusaur", types:["grass"," poison"] , hieght:"2" },
-  {name:"Charmander", types:"fire" , hieght:".6" },
-  {name:"Charmeleon", types:"fire" , hieght:"1.1" },
-  {name:"Charizard", types:["fire"," flying" ], hieght:"1.7" }];
+const pokemonList = [{
+    name: "Bulbasaur",
+    height: .5,
+    weight: 6.9,
+    type: "grass and poison"
+  },
+  {
+    name: "Charmander",
+    height: 0.6,
+    weight: 8.5,
+    type: "fire",
+  },
+  {
+    name: "Squirtle",
+    height: 1.6,
+    weight: 9,
+    type: "water",
+  },
 
+]
 
-let pokeinfo = "";
 
 
 for (let i = 0; i <pokemonList.length; i++){
-    if (pokemonList[i].hieght <1)
-     {pokeinfo= pokemonList[i].name," is a ", pokemonList[i].types," type", "<br>", " hieight is ", pokemonList[i].hieght, " meters. Thats small <br>";}
-    
-
-    else if (pokemonList[i].hieght >1.5) {pokeinfo=pokemonList[i].name," is a ", pokemonList[i].types," type", "<br>", " hieight is ",pokemonList[i].hieght, " meters. Thats Big <br>";
+    if (pokemonList[i].height <1)
+     {document.write( pokemonList[i].name," is a ", pokemonList[i].type," type", "<br>", " hieight is ", pokemonList[i].height, 'meters. Thats small'," <br>");
     }
     
-     else {
-        pokeinfo=pokemonList[i].name," is a ", pokemonList[i].types," type", "<br>", " hieight is ", pokemonList[i].hieght, " meters. <br>";
-     };
+
+    else if (pokemonList[i].height >1.5) {document.write(pokemonList[i].name," is a ", pokemonList[i].type," type", "<br>", " hieight is ",pokemonList[i].height, " meters. Thats Big" , " <br>");
+    }
     
+     else {document.write(pokemonList[i].name," is a ", pokemonList[i].type," type", "<br>", " hieight is ", pokemonList[i].height, " meters.", " <br>");
+     };
 }
-document.write(pokeinfo)
+
+
 
 
 
