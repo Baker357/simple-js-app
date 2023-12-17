@@ -37,9 +37,6 @@ let pokemonRepository = (function () {
 
     //show a modal on top of list of pokemons that displays the detais of the clicked pokemon
     function showModal(pokemon) {
-      function hideModal() {
-        let modalContainer= document.querySelector('#modal-container');
-        modalContainer.classList.remove('is-visible');}
 
         //Clear all existing modal content
         modalContainer.innerHTML = '';
@@ -108,8 +105,12 @@ let pokemonRepository = (function () {
     }
     //should remove modal.. but not working-----------
     function hideModal() {
-      let modalContainer= document.querySelector('#modal-container');
-      modalContainer.classList.remove('is-visible');}
+      let modalContainer= document.querySelector('#modal-container').hide();}
+//.hide();
+
+
+
+
 
     //remove Modal when escape key is hit
     window.addEventListener('keydown', function (event) {
