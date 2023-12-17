@@ -37,6 +37,9 @@ let pokemonRepository = (function () {
 
     //show a modal on top of list of pokemons that displays the detais of the clicked pokemon
     function showModal(pokemon) {
+      function hideModal() {
+        let modalContainer= document.querySelector('#modal-container');
+        modalContainer.classList.remove('is-visible');}
 
         //Clear all existing modal content
         modalContainer.innerHTML = '';
@@ -82,7 +85,7 @@ let pokemonRepository = (function () {
         modal.appendChild(titleElement);
         modal.appendChild(imageElement);
 
-        // check if image showing pokemon from back exists 
+        // check back
         if (pokemon.imageUrlBack) {
             let imageElement2 = document.createElement('img');
             imageElement2.src = pokemon.imageUrlBack;
@@ -103,11 +106,10 @@ let pokemonRepository = (function () {
             }
         });
     }
-
+    //should remove modal.. but not working-----------
     function hideModal() {
-
-        modalContainer.classList.remove('is-visible');
-    }
+      let modalContainer= document.querySelector('#modal-container');
+      modalContainer.classList.remove('is-visible');}
 
     //remove Modal when escape key is hit
     window.addEventListener('keydown', function (event) {
@@ -136,13 +138,12 @@ let pokemonRepository = (function () {
         displayPropertiesOnClick(pokemon, button);
     }
 
-    //load details for a given pokemon from api, add details to pokemon object
+    //load details 
     function loadDetails(item) {
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
             return response.json();
         }).then(function (details) {
-            // add the details to the item
             item.imageUrl = details.sprites.front_default;
             item.imageUrlBack = details.sprites.back_default;
             item.height = details.height;
@@ -153,7 +154,6 @@ let pokemonRepository = (function () {
         });
     }
 
-    // after details of pokemon have been loaded from api, call function to display modal
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             showModal(pokemon);
@@ -174,7 +174,6 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.getAll().forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);
     });
-    showNumberDisplayedPokemons();
 });
 
 
