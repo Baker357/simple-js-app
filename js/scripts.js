@@ -105,8 +105,17 @@ let pokemonRepository = (function () {
     }
     //should remove modal.. but not working-----------
     function hideModal() {
-      let modalContainer= document.querySelector('#modal-container').hide();}
-//.hide();
+
+        modalContainer.classList.remove('is-visible');
+    }
+
+    //remove Modal when escape key is hit
+    window.addEventListener('keydown', function (event) {
+
+        if (event.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+            hideModal();
+        }
+    });
 
 
 
